@@ -91,7 +91,7 @@ end
 # First find the "Tiger" hash from the array of Animals at the Bronx Zoo and then, access the value under the ":count" key
 
 tiger_hash = zoos["Bronx Zoo"][:animals].find {|element| element[:species] == "Tiger"}
-p tiger_hash[:count]
+# p tiger_hash[:count]
 
 # Generalize the process to find the ticket price of a specific zoo.
 # In other words, you're given a `name_of_zoo` variable that is a string.
@@ -129,10 +129,13 @@ end
 # The return value should be a hash with two keys: ["Bronx Zoo", "Central Park Zoo"]
 # Consider which higher-level enumerable method(s) you'd use here.
 
-open_zoo_array = zoos.select do |key, value|
-    value[:weekend] == true
+weekend_zoo = []
+zoos.select do |key, value|
+    if value[:weekend] == true
+        weekend_zoo << key
+    end
 end
-# p open_zoo_array
+#  p weekend_zoo
 
 # Find the first zoo that are open on the weekend AND has the price under 20 dollars.
 # The return value should be an array with two elements: ["Central Park Zoo", { location: "Manhattan", ... }]

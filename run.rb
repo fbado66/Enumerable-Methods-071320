@@ -63,23 +63,28 @@ zoos = {
 # Central Park Zoo has just received 4 wolves. Alter the `zoos` information to reflect this new change:
 # Put this hash: { species: "Wolf", count: 4 } in the array under the `:animals` key in Central Park Zoo
 
-
-
-
+new_species_wolf = { species: "Wolf", count: 4 }
+zoos["Central Park Zoo"][:animals] << new_species_wolf
+# pp zoos
 
 # The 2 penguins in the Bronx Zoo just had a baby. Alter the `zoos` information to reflect this new change:
 # Increment the number for the `:count` key in the "Penguin" hash in the Bronx Zoo array by 1. 
 # You can assume that the animal at index 0 will always be the "Penguin" hash.
 
-
-
+ zoos["Bronx Zoo"][:animals][0][:count] += 1 
+# p zoos["Bronx Zoo"][:animals][0]
 
 
 # Each of the zoos in the city just received 2 pandas. Alter the `zoos` information to reflect this new change:
 # In the array of animals under each Zoo, shovel this hash: { species: "Panda", count: 2 }
 
+panda = { species: "Panda", count: 2 }
+zoos.each do |key, value|
+     value[:animals] << panda
+#  binding.pry
+end
 
-
+#  pp zoos
 
 
 # Return the number of Tigers at the Bronx Zoo.
@@ -87,7 +92,8 @@ zoos = {
 # First find the "Tiger" hash from the array of Animals at the Bronx Zoo and then, access the value under the ":count" key
 
 
-
+tiger_hash = zoos["Bronx Zoo"][:animals].find {|element| element[:species] == "Tiger"}
+p tiger_hash[:count]
 
 
 
@@ -96,9 +102,16 @@ zoos = {
 # Return the price associated with the `name_of_zoo` variable.
 
 # No matter which 1 of the 3 variable assignment you choose, your code should work:
-# name_of_zoo = "Bronx Zoo" => returns 25
-# name_of_zoo = "Central Park Zoo" => returns 18
-# name_of_zoo = "Staten Island Zoo" => returns 10
+name_of_zoo = "Bronx Zoo" 
+# => returns 25
+# name_of_zoo = "Central Park Zoo" 
+# => returns 18
+name_of_zoo = "Staten Island Zoo" 
+# => returns 10
+
+ find_the_ticket = zoos[name_of_zoo][:price]
+  
+# p find_the_ticket
 
 
 

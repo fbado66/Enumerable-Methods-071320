@@ -86,57 +86,48 @@ end
 
 #  pp zoos
 
-
 # Return the number of Tigers at the Bronx Zoo.
 # Rather than assuming that the animal at index 2 will always be the "Tiger" hash:
 # First find the "Tiger" hash from the array of Animals at the Bronx Zoo and then, access the value under the ":count" key
 
-
 tiger_hash = zoos["Bronx Zoo"][:animals].find {|element| element[:species] == "Tiger"}
 p tiger_hash[:count]
-
-
 
 # Generalize the process to find the ticket price of a specific zoo.
 # In other words, you're given a `name_of_zoo` variable that is a string.
 # Return the price associated with the `name_of_zoo` variable.
 
 # No matter which 1 of the 3 variable assignment you choose, your code should work:
-name_of_zoo = "Bronx Zoo" 
-# => returns 25
-# name_of_zoo = "Central Park Zoo" 
-# => returns 18
-name_of_zoo = "Staten Island Zoo" 
-# => returns 10
+# name_of_zoo = "Bronx Zoo" # => returns 25
+# name_of_zoo = "Central Park Zoo" # => returns 18
+# name_of_zoo = "Staten Island Zoo" # => returns 10
 
- find_the_ticket = zoos[name_of_zoo][:price]
+# find_the_ticket = zoos[name_of_zoo][:price]
   
 # p find_the_ticket
 
-
-
-
-
 # Return the sum of all the zoos' price. 
 # The return value should be: 53 
-
-
-
-
+total_value = 0
+zoos.each do |key, value|
+    price = value[:price]
+    total_value += price
+    total_value
+end
 
 # Return an array of all the locations where the zoos are located.
 # The return value should be an array of strings: ["Bronx", "Manhattan", "Staten Island"]
 # Consider which higher-level enumerable method(s) you'd use here.
 
+location_array = zoos.map do |key, value|
+    value[:location]
+end
 
-
-
+# p location_array
 
 # Find all the zoos that are open on the weekend. 
 # The return value should be a hash with two keys: ["Bronx Zoo", "Central Park Zoo"]
 # Consider which higher-level enumerable method(s) you'd use here.
-
-
 
 
 

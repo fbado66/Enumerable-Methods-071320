@@ -164,16 +164,35 @@ zoos.map do |key, value|
         # binding.pry
     end 
 end
-p have_monkey
-
+# p have_monkey
 
 # Return an array of 3 numbers, each describing the total sum of the number of animals in a zoo.
 # The return value should be an array of 3 numbers: [20, 14, 17]
 # Consider which higher-level enumerable method(s) you'd use here.
+array_of_3nums = []
+bronx_total = 0
+central_total = 0
+si_total = 0
 
-
-
-
+zoos.each do |key, value|
+    if key == "Bronx Zoo"
+        value[:animals].count do |animal|
+           bronx_total += animal[:count]
+        end
+    end
+    if key == "Central Park Zoo"
+        value[:animals].count do |animal|
+           central_total += animal[:count]
+        end
+    end
+    if key == "Staten island Zoo"
+        value[:animals].count do |animal|
+           si_total += animal[:count]
+        end
+    end
+    array_of_3nums = bronx_total, central_total, si_total
+end
+# p array_of_3nums
 
 # Find the zoo with the highest count of any species in it. (Butterflies with the 12 count is the highest)
 # The return value should be an array with two elements: ["Bronx Zoo", { location: "Bronx", ... }]

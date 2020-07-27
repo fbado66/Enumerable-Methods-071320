@@ -132,15 +132,21 @@ end
 open_zoo_array = zoos.select do |key, value|
     value[:weekend] == true
 end
-
-p open_zoo_array
+# p open_zoo_array
 
 # Find the first zoo that are open on the weekend AND has the price under 20 dollars.
 # The return value should be an array with two elements: ["Central Park Zoo", { location: "Manhattan", ... }]
 # Consider which higher-level enumerable method(s) you'd use here.
 
-
-
+array1 = []
+zoos.select do |key, value|
+    if value[:weekend] == true && value[:price] < 20
+        array1 << key
+        array1 << value
+    end
+    # binding.pry
+end
+# pp array1
 
 
 # Find all the zoos where there are monkeys.

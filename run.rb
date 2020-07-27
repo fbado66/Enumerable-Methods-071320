@@ -155,9 +155,16 @@ end
 # Find all the zoos where there are monkeys.
 # The return value should be a hash with two keys: ["Central Park Zoo", "Staten Island Zoo"]
 # Consider which higher-level enumerable method(s) you'd use here.
-
-
-
+have_monkey = []
+zoos.map do |key, value| 
+    value[:animals].each do |inner_key, inner_value|
+        if inner_key[:species] == "Monkey"
+        have_monkey << key
+        end
+        # binding.pry
+    end 
+end
+p have_monkey
 
 
 # Return an array of 3 numbers, each describing the total sum of the number of animals in a zoo.

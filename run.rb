@@ -198,6 +198,21 @@ end
 # The return value should be an array with two elements: ["Bronx Zoo", { location: "Bronx", ... }]
 # Consider which higher-level enumerable method(s) you'd use here.
 
+array_zoo_butterfly = []
+highest_value = 0
+zoos.select do |key, value|
+    value[:animals].select do |animal|
+        if highest_value < animal[:count]
+            highest_value = animal[:count]
+            array_zoo_butterfly << key
+            array_zoo_butterfly << value
+        end
+        if array_zoo_butterfly.size > 1
+            break
+        end
+    end
+end
+# pp array_zoo_butterfly
 
 
 

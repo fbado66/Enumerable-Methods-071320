@@ -200,8 +200,8 @@ end
 
 array_zoo_butterfly = []
 highest_value = 0
-zoos.select do |key, value|
-    value[:animals].select do |animal|
+zoos.each do |key, value|
+    value[:animals].each do |animal|
         if highest_value < animal[:count]
             highest_value = animal[:count]
             array_zoo_butterfly << key
@@ -212,7 +212,19 @@ zoos.select do |key, value|
         end
     end
 end
+
 # pp array_zoo_butterfly
 
+def find_zoo_with_highest_count(zoos)
+    zoos.find do |zoo_name, zoo_stats|
+        zoo_stats[:animals].max_by do |animal_hash|
+            animal_hash[:count]
+        end
+    end
+end
+
+find_zoo_with_highest_count(zoos)
 
 
+binding.pry
+0
